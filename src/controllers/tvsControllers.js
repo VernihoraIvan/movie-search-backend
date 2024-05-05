@@ -1,4 +1,4 @@
-const { fetchTVSeries } = require("../api/connection");
+const { fetchTVSeries, fetchTVsDetails } = require("../api/connection");
 
 const getTrendingTVs = async (req, res) => {
   try {
@@ -13,4 +13,19 @@ const getTrendingTVs = async (req, res) => {
   }
 };
 
-module.exports = { getTrendingTVs };
+const getTVDetails = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const response = await fetchTVsDetails(id);
+    console.log(response);
+    res.json({
+      status: "success",
+      code: 200,
+      results: response,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { getTrendingTVs, getTVDetails };
