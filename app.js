@@ -4,6 +4,7 @@ const cors = require("cors");
 const logger = require("morgan");
 const moviesRouter = require("./src/routes/trends");
 const searchRouter = require("./src/routes/search");
+const movieDetailsRouter = require("./src/routes/movieDetails");
 
 require("dotenv").config();
 
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use("/trending", moviesRouter);
 app.use("/search", searchRouter);
+app.use("/movie", movieDetailsRouter);
 
 //=========================================================
 
