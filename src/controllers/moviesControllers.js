@@ -2,6 +2,7 @@ const {
   fetchMovies,
   fetchMovieByQuery,
   fetchMovieDetails,
+  fetchMovieCast,
 } = require("../api/connection");
 
 const getTrendingMovies = async (req, res) => {
@@ -48,4 +49,24 @@ const getMovieDetails = async (req, res) => {
   }
 };
 
-module.exports = { getTrendingMovies, getMovieByQuery, getMovieDetails };
+const getMovieCast = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const response = await fetchMovieCast(id);
+    console.log(response);
+    res.json({
+      status: "success",
+      code: 200,
+      results: response,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = {
+  getTrendingMovies,
+  getMovieByQuery,
+  getMovieDetails,
+  getMovieCast,
+};
