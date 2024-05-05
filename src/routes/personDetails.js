@@ -1,12 +1,12 @@
 const { Router } = require("express");
 const {
   getPersonDetailst,
-  getAdditionalPersonDetailst,
+  getAdditinalPersonDetailst,
 } = require("../controllers/personControllers");
 
 const router = Router();
 
-router.get("/:id", getAdditionalPersonDetailst);
+router.get("/:id", getAdditinalPersonDetailst);
 router.get("/:id/combined_credits", getPersonDetailst);
 
 module.exports = router;

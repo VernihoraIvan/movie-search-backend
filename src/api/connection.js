@@ -1,15 +1,6 @@
-// import axios from "axios";
 const axios = require("axios");
-// import {
-//   MovieData,
-//   MovieListResponse,
-//   TVData,
-//   TVListResponse,
-// } from "../utilities/interfaces";
 
-// axios.defaults.headers = "Access-Control-Allow-Origin";
-const API_KEY = "34a3f3c9cce4f4b9cc46f3708ad7a6e9";
-const BASE_URL = "https://api.themoviedb.org/3";
+const { API_KEY, BASE_URL } = require("./environments");
 
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.params = {
@@ -36,16 +27,6 @@ const fetchTVSeries = async () => {
     return [];
   }
 };
-
-// const fetchData = async (query) => {
-//   try {
-//     const { data } = await axios.get(`/search/movie?${API_KEY}query=${query}`);
-//     return data.results;
-//   } catch (error) {
-//     console.log(error);
-//     return [];
-//   }
-// };
 
 const fetchMovieByQuery = async (query, page) => {
   try {

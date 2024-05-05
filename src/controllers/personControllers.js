@@ -18,7 +18,7 @@ const getPersonDetailst = async (req, res) => {
   }
 };
 
-const getAdditionalPersonDetailst = async (req, res) => {
+const getAdditinalPersonDetailst = async (req, res) => {
   const { id } = req.params;
   try {
     const response = await fetchPersonDetailsById(id);
@@ -33,4 +33,4 @@ const getAdditionalPersonDetailst = async (req, res) => {
   }
 };
 
-module.exports = { getPersonDetailst, getAdditionalPersonDetailst };
+module.exports = { getPersonDetailst, getAdditinalPersonDetailst };
