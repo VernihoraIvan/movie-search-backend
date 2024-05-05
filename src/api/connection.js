@@ -27,19 +27,17 @@ const fetchMovies = async () => {
   }
 };
 
-module.exports = { fetchMovies };
+const fetchTVSeries = async () => {
+  try {
+    const { data } = await axios.get("/trending/tv/day");
+    return data.results;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
 
-// export const fetchTVSeries = async (): Promise<TVData[]> => {
-//   try {
-//     const { data } = await axios.get<TVListResponse>("/trending/tv/day");
-//     return data.results;
-//   } catch (error) {
-//     console.log(error);
-//     return [];
-//   }
-// };
-
-// export const fetchData = async (query: string) => {
+// const fetchData = async (query) => {
 //   try {
 //     const { data } = await axios.get(`/search/movie?${API_KEY}query=${query}`);
 //     return data.results;
@@ -49,89 +47,103 @@ module.exports = { fetchMovies };
 //   }
 // };
 
-// export const fetchMovieByQuery = async (query: string, page: number) => {
-//   try {
-//     const { data } = await axios.get(
-//       `/search/movie?query=${query}&page=${page}`
-//     );
-//     return data.results;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const fetchMovieByQuery = async (query, page) => {
+  try {
+    const { data } = await axios.get(
+      `/search/movie?query=${query}&page=${page}`
+    );
+    return data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// export const fetchMovieDetails = async (id: string) => {
-//   try {
-//     const { data } = await axios.get(`/movie/${id}`);
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//     return [];
-//   }
-// };
+const fetchMovieDetails = async (id) => {
+  try {
+    const { data } = await axios.get(`/movie/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
 
-// export const fetchTVsDetails = async (id: string) => {
-//   try {
-//     const { data } = await axios.get(`/tv/${id}`);
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//     return [];
-//   }
-// };
+const fetchTVsDetails = async (id) => {
+  try {
+    const { data } = await axios.get(`/tv/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
 
-// export const fetchMovieCast = async (id: string) => {
-//   try {
-//     const { data } = await axios.get(`movie/${id}/credits`);
-//     return data.cast;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const fetchMovieCast = async (id) => {
+  try {
+    const { data } = await axios.get(`movie/${id}/credits`);
+    return data.cast;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// export const fetchTVCast = async (id: string) => {
-//   try {
-//     const { data } = await axios.get(`tv/${id}/credits`);
-//     return data.cast;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const fetchTVCast = async (id) => {
+  try {
+    const { data } = await axios.get(`tv/${id}/credits`);
+    return data.cast;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// export const fetchPersonDetails = async (id: string) => {
-//   try {
-//     const { data } = await axios.get(`/person/${id}/combined_credits`);
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const fetchPersonDetails = async (id) => {
+  try {
+    const { data } = await axios.get(`/person/${id}/combined_credits`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// export const fetchPersonDetailsById = async (id: string) => {
-//   try {
-//     const { data } = await axios.get(`/person/${id}`);
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const fetchPersonDetailsById = async (id) => {
+  try {
+    const { data } = await axios.get(`/person/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// export const fetchMovieReview = async (id: string) => {
-//   try {
-//     const { data } = await axios.get(`/movie/${id}/reviews`);
-//     return data.results[0];
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const fetchMovieReview = async (id) => {
+  try {
+    const { data } = await axios.get(`/movie/${id}/reviews`);
+    return data.results[0];
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// export const fetchFavorites = async (ids: number[]) => {
-//   try {
-//     const requests = ids.map((id) => axios.get(`/movie/${id}`));
-//     const responses = await Promise.all(requests);
-//     return responses.map((response) => response.data);
-//   } catch (error) {
-//     console.log(error);
-//     return [];
-//   }
-// };
+const fetchFavorites = async (ids) => {
+  try {
+    const requests = ids.map((id) => axios.get(`/movie/${id}`));
+    const responses = await Promise.all(requests);
+    return responses.map((response) => response.data);
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+module.exports = {
+  fetchMovies,
+  fetchTVSeries,
+  fetchMovieByQuery,
+  fetchMovieDetails,
+  fetchTVsDetails,
+  fetchMovieCast,
+  fetchTVCast,
+  fetchPersonDetails,
+  fetchPersonDetailsById,
+  fetchMovieReview,
+  fetchFavorites,
+};
