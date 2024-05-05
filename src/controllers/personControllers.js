@@ -1,4 +1,7 @@
-const { fetchPersonDetails } = require("../api/connection");
+const {
+  fetchPersonDetails,
+  fetchPersonDetailsById,
+} = require("../api/connection");
 
 const getPersonDetailst = async (req, res) => {
   const { id } = req.params;
@@ -15,4 +18,19 @@ const getPersonDetailst = async (req, res) => {
   }
 };
 
-module.exports = { getPersonDetailst };
+const getAdditionalPersonDetailst = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const response = await fetchPersonDetailsById(id);
+    console.log(response);
+    res.json({
+      status: "success",
+      code: 200,
+      results: response,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { getPersonDetailst, getAdditionalPersonDetailst };

@@ -11,6 +11,7 @@ const router = Router();
 router.get("/:id", getMovieDetails);
 router.get("/:id/credits", getMovieCast);
 router.get("/:id/reviews", getMovieReview);
+// router.get("/favorite");
 // router.get("/tv", getTrendingTVs);
 
 module.exports = router;

@@ -117,6 +117,7 @@ const fetchPersonDetailsById = async (id) => {
 const fetchMovieReview = async (id) => {
   try {
     const { data } = await axios.get(`/movie/${id}/reviews`);
+    console.log(data);
     return data.results[0];
   } catch (error) {
     console.log(error);

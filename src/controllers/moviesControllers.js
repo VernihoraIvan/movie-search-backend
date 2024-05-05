@@ -80,6 +80,21 @@ const getMovieReview = async (req, res) => {
   }
 };
 
+// const getFavoriteMovies = async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const response = await fetchMovieReview(id);
+//     console.log(response);
+//     res.json({
+//       status: "success",
+//       code: 200,
+//       results: response,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
 module.exports = {
   getTrendingMovies,
   getMovieByQuery,
