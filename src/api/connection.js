@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const { API_KEY, BASE_URL } = require("./environments");
+const { API_KEY, BASE_URL } = require("../utilities/environments");
 
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.params = {
